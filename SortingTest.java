@@ -47,13 +47,18 @@ public class SortingTest {
     System.out.println("sortedUsers2: " + sortedUsers2);
 
     List<User> sortedUsers3 = users.stream()
-      .sorted(Comparator.comparing(x -> x.getId()))
+      .sorted((x, y) -> x.getId() - y.getId())
       .collect(Collectors.toList());
     System.out.println("sortedUsers3: " + sortedUsers3);
 
     List<User> sortedUsers4 = users.stream()
-      .sorted(Comparator.comparing(User::getId))
+      .sorted(Comparator.comparing(x -> x.getId()))
       .collect(Collectors.toList());
     System.out.println("sortedUsers4: " + sortedUsers4);
+
+    List<User> sortedUsers5 = users.stream()
+      .sorted(Comparator.comparing(User::getId))
+      .collect(Collectors.toList());
+    System.out.println("sortedUsers5: " + sortedUsers5);
   }
 }

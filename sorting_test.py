@@ -1,3 +1,6 @@
+from operator import attrgetter
+
+
 class User:
     def __init__(self, id, name):
         self.__id = id
@@ -25,3 +28,6 @@ if __name__ == '__main__':
 
     sorted_users1 = sorted(users, key=lambda x: x.id)
     print('sorted_users1: {0}'.format(sorted_users1))
+
+    sorted_users2 = sorted(users, key=attrgetter('id'))
+    print('sorted_users2: {0}'.format(sorted_users2))
