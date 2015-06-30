@@ -15,5 +15,13 @@
 (println "sorted-users2:" sorted-users2)
 
 (def sorted-users3
-  (sort-by :id users))
+  (sort-by (fn [x] (:id x)) users))
 (println "sorted-users3:" sorted-users3)
+
+(def sorted-users4
+  (sort-by #(:id %) users))
+(println "sorted-users4:" sorted-users4)
+
+(def sorted-users5
+  (sort-by :id users))
+(println "sorted-users5:" sorted-users5)
