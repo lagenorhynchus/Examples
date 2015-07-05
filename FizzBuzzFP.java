@@ -4,7 +4,6 @@ public class FizzBuzzFP {
   public static String fizzBuzz(final int n) {
     final boolean isDivisibleBy3 = n % 3 == 0;
     final boolean isDivisibleBy5 = n % 5 == 0;
-
     if (isDivisibleBy3 && isDivisibleBy5) {
       return "Fizz Buzz";
     } else if (isDivisibleBy3) {
