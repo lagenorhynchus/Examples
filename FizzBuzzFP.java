@@ -15,7 +15,7 @@ public class FizzBuzzFP {
     }
   }
 
-  public static void main(String[] args) {
+  public static void main(final String[] args) {
     IntStream.rangeClosed(1, 30)
       .mapToObj(FizzBuzzFP::fizzBuzz)
       .forEach(System.out::println);

@@ -1,20 +1,7 @@
-class FizzBuzzer {
-  private int n;
-
-  public FizzBuzzer(int n) {
-    this.n = n;
-  }
-
-  public void say(int t) {
-    for (int i = 0; i < t; i++) {
-      System.out.println(fizzBuzz());
-      n++;
-    }
-  }
-
-  private String fizzBuzz() {
-    boolean isDivisibleBy3 = n % 3 == 0;
-    boolean isDivisibleBy5 = n % 5 == 0;
+public class FizzBuzzOOP {
+  public static String fizzBuzz(final int n) {
+    final boolean isDivisibleBy3 = n % 3 == 0;
+    final boolean isDivisibleBy5 = n % 5 == 0;
     if (isDivisibleBy3 && isDivisibleBy5) {
       return "Fizz Buzz";
     } else if (isDivisibleBy3) {
@@ -25,11 +12,24 @@ class FizzBuzzer {
       return String.valueOf(n);
     }
   }
+
+  public static void main(final String[] args) {
+    final FizzBuzzer fb = new FizzBuzzer(1);
+    fb.say(30);
+  }
 }
 
-public class FizzBuzzOOP {
-  public static void main(String[] args) {
-    FizzBuzzer fb = new FizzBuzzer(1);
-    fb.say(30);
+class FizzBuzzer {
+  private int n;
+
+  public FizzBuzzer(final int n) {
+    this.n = n;
+  }
+
+  public void say(final int t) {
+    for (int i = 0; i < t; i++) {
+      System.out.println(FizzBuzzOOP.fizzBuzz(n));
+      n++;
+    }
   }
 }
