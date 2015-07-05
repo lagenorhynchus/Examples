@@ -1,3 +1,5 @@
+module FizzBuzzFP where
+
 fizzBuzz :: Int -> String
 fizzBuzz n
   | isDivisibleBy3 && isDivisibleBy5 = "Fizz Buzz"
@@ -9,4 +11,4 @@ fizzBuzz n
     isDivisibleBy5 = n `mod` 5 == 0
 
 main :: IO ()
-main = mapM_ (print . fizzBuzz) [1..30]
+main = mapM_ (print . FizzBuzzFP.fizzBuzz) [1..30]

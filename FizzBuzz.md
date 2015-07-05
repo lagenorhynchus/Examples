@@ -140,7 +140,7 @@ public class FizzBuzzFP {
 
 object FizzBuzzFP {
   def main(args: Array[String]): Unit = {
-    (1 to 30).map(fizzBuzz).foreach(println)
+    (1 to 30).map(FizzBuzzFP.fizzBuzz).foreach(println)
   }
 
   def fizzBuzz(n: Int): String = {
@@ -162,6 +162,8 @@ object FizzBuzzFP {
 ```clojure
 ;; Clojure
 
+(ns fizz-buzz-fp)
+
 (defn fizzBuzz [n]
   (let [divisible-by-3 (zero? (mod n 3))
         divisible-by-5 (zero? (mod n 5))]
@@ -173,16 +175,18 @@ object FizzBuzzFP {
       :else                (str n))))
 
 ;; pattern 1
-(doall (map (comp println fizzBuzz) (range 1 (inc 30))))
+(doall (map (comp println fizz-buzz-fp/fizzBuzz) (range 1 (inc 30))))
 
 ;; pattern 2
 (->> (range 1 (inc 30))
-     (map (comp println fizzBuzz))
+     (map (comp println fizz-buzz-fp/fizzBuzz))
      doall)
 ```
 
 ```haskell
 -- Haskell
+
+module FizzBuzzFP where
 
 fizzBuzz :: Int -> String
 fizzBuzz n
@@ -195,5 +199,5 @@ fizzBuzz n
     isDivisibleBy5 = n `mod` 5 == 0
 
 main :: IO ()
-main = mapM_ (print . fizzBuzz) [1..30]
+main = mapM_ (print . FizzBuzzFP.fizzBuzz) [1..30]
 ```

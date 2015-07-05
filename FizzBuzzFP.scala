@@ -1,6 +1,6 @@
 object FizzBuzzFP {
   def main(args: Array[String]): Unit = {
-    (1 to 30).map(fizzBuzz).foreach(println)
+    (1 to 30).map(FizzBuzzFP.fizzBuzz).foreach(println)
   }
 
   def fizzBuzz(n: Int): String = {
