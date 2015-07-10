@@ -34,7 +34,7 @@ public class FizzBuzzTest {
   }
 
   @Test
-  public void 数が15の倍数のときFizzBuzz() {
+  public void 数が3の倍数かつ5の倍数のときFizzBuzz() {
     assertThat(FizzBuzz.fizzBuzz(15), is("Fizz Buzz"));
     assertThat(FizzBuzz.fizzBuzz(30), is("Fizz Buzz"));
     assertThat(FizzBuzz.fizzBuzz(45), is("Fizz Buzz"));
