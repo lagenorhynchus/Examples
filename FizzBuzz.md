@@ -59,7 +59,7 @@ public class FizzBuzzPP {
 
   public static void main(final String[] args) {
     for (int n = 1; n <= 30; n++) {
-      System.out.println(fizzBuzz(n));
+      System.out.println(FizzBuzzPP.fizzBuzz(n));
     }
   }
 }
