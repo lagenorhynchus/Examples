@@ -43,23 +43,29 @@ $
 // Java
 
 public class FizzBuzzPP {
-  public static String fizzBuzz(final int n) {
-    final boolean isDivisibleBy3 = n % 3 == 0;
-    final boolean isDivisibleBy5 = n % 5 == 0;
-    if (isDivisibleBy3 && isDivisibleBy5) {
-      return "Fizz Buzz";
-    } else if (isDivisibleBy3) {
-      return "Fizz";
-    } else if (isDivisibleBy5) {
-      return "Buzz";
-    } else {
-      return String.valueOf(n);
+  public static class FizzBuzz {
+    public static String fizzBuzz(final int n) {
+      if (n < 1) {
+        throw new IllegalArgumentException("n cannot be less than 1");
+      }
+
+      final boolean isDivisibleBy3 = n % 3 == 0;
+      final boolean isDivisibleBy5 = n % 5 == 0;
+      if (isDivisibleBy3 && isDivisibleBy5) {
+        return "Fizz Buzz";
+      } else if (isDivisibleBy3) {
+        return "Fizz";
+      } else if (isDivisibleBy5) {
+        return "Buzz";
+      } else {
+        return String.valueOf(n);
+      }
     }
   }
 
   public static void main(final String[] args) {
     for (int n = 1; n <= 30; n++) {
-      System.out.println(FizzBuzzPP.fizzBuzz(n));
+      System.out.println(FizzBuzz.fizzBuzz(n));
     }
   }
 }
@@ -70,17 +76,23 @@ public class FizzBuzzPP {
 // Java
 
 public class FizzBuzzOOP {
-  public static String fizzBuzz(final int n) {
-    final boolean isDivisibleBy3 = n % 3 == 0;
-    final boolean isDivisibleBy5 = n % 5 == 0;
-    if (isDivisibleBy3 && isDivisibleBy5) {
-      return "Fizz Buzz";
-    } else if (isDivisibleBy3) {
-      return "Fizz";
-    } else if (isDivisibleBy5) {
-      return "Buzz";
-    } else {
-      return String.valueOf(n);
+  public static class FizzBuzz {
+    public static String fizzBuzz(final int n) {
+      if (n < 1) {
+        throw new IllegalArgumentException("n cannot be less than 1");
+      }
+
+      final boolean isDivisibleBy3 = n % 3 == 0;
+      final boolean isDivisibleBy5 = n % 5 == 0;
+      if (isDivisibleBy3 && isDivisibleBy5) {
+        return "Fizz Buzz";
+      } else if (isDivisibleBy3) {
+        return "Fizz";
+      } else if (isDivisibleBy5) {
+        return "Buzz";
+      } else {
+        return String.valueOf(n);
+      }
     }
   }
 
@@ -99,7 +111,7 @@ class FizzBuzzer {
 
   public void say(final int t) {
     for (int i = 0; i < t; i++) {
-      System.out.println(FizzBuzzOOP.fizzBuzz(n));
+      System.out.println(FizzBuzz.fizzBuzz(n));
       n++;
     }
   }
@@ -113,23 +125,29 @@ class FizzBuzzer {
 import java.util.stream.IntStream;
 
 public class FizzBuzzFP {
-  public static String fizzBuzz(final int n) {
-    final boolean isDivisibleBy3 = n % 3 == 0;
-    final boolean isDivisibleBy5 = n % 5 == 0;
-    if (isDivisibleBy3 && isDivisibleBy5) {
-      return "Fizz Buzz";
-    } else if (isDivisibleBy3) {
-      return "Fizz";
-    } else if (isDivisibleBy5) {
-      return "Buzz";
-    } else {
-      return String.valueOf(n);
+  public static class FizzBuzz {
+    public static String fizzBuzz(final int n) {
+      if (n < 1) {
+        throw new IllegalArgumentException("n cannot be less than 1");
+      }
+
+      final boolean isDivisibleBy3 = n % 3 == 0;
+      final boolean isDivisibleBy5 = n % 5 == 0;
+      if (isDivisibleBy3 && isDivisibleBy5) {
+        return "Fizz Buzz";
+      } else if (isDivisibleBy3) {
+        return "Fizz";
+      } else if (isDivisibleBy5) {
+        return "Buzz";
+      } else {
+        return String.valueOf(n);
+      }
     }
   }
 
   public static void main(final String[] args) {
     IntStream.rangeClosed(1, 30)
-      .mapToObj(FizzBuzzFP::fizzBuzz)
+      .mapToObj(FizzBuzz::fizzBuzz)
       .forEach(System.out::println);
   }
 }
@@ -140,10 +158,14 @@ public class FizzBuzzFP {
 
 object FizzBuzzFP {
   def main(args: Array[String]): Unit = {
-    (1 to 30).map(FizzBuzzFP.fizzBuzz).foreach(println)
+    (1 to 30).map(fizzBuzz).foreach(println)
   }
 
   def fizzBuzz(n: Int): String = {
+    if (n < 1) {
+      throw new IllegalArgumentException("n cannot be less than 1")
+    }
+
     val isDivisibleBy3 = n % 3 == 0
     val isDivisibleBy5 = n % 5 == 0
     if (isDivisibleBy3 && isDivisibleBy5) {
@@ -164,10 +186,11 @@ object FizzBuzzFP {
 
 (ns fizz-buzz-fp)
 
-(defn fizzBuzz [n]
+(defn fizz-buzz [n]
   (let [divisible-by-3 (zero? (mod n 3))
         divisible-by-5 (zero? (mod n 5))]
     (cond
+      (< n 1)              (throw (IllegalArgumentException. "n cannot be less than 1"))
       (and divisible-by-3
            divisible-by-5) "Fizz Buzz"
       divisible-by-3       "Fizz"
@@ -175,11 +198,11 @@ object FizzBuzzFP {
       :else                (str n))))
 
 ;; pattern 1
-(doall (map (comp println fizz-buzz-fp/fizzBuzz) (range 1 (inc 30))))
+(doall (map (comp println fizz-buzz) (range 1 (inc 30))))
 
 ;; pattern 2
 (->> (range 1 (inc 30))
-     (map (comp println fizz-buzz-fp/fizzBuzz))
+     (map (comp println fizz-buzz))
      doall)
 ```
 
@@ -190,6 +213,7 @@ module FizzBuzzFP where
 
 fizzBuzz :: Int -> String
 fizzBuzz n
+  | n < 1                            = error "n cannot be less than 1"
   | isDivisibleBy3 && isDivisibleBy5 = "Fizz Buzz"
   | isDivisibleBy3                   = "Fizz"
   | isDivisibleBy5                   = "Buzz"
@@ -199,5 +223,5 @@ fizzBuzz n
     isDivisibleBy5 = n `mod` 5 == 0
 
 main :: IO ()
-main = mapM_ (print . FizzBuzzFP.fizzBuzz) [1..30]
+main = mapM_ (print . fizzBuzz) [1..30]
 ```
