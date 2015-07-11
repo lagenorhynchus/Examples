@@ -1,6 +1,6 @@
 (ns fizz-buzz-fp)
 
-(defn fizzBuzz [n]
+(defn fizz-buzz [n]
   (let [divisible-by-3 (zero? (mod n 3))
         divisible-by-5 (zero? (mod n 5))]
     (cond
@@ -11,9 +11,9 @@
       :else                (str n))))
 
 ;; pattern 1
-(doall (map (comp println fizz-buzz-fp/fizzBuzz) (range 1 (inc 30))))
+(doall (map (comp println fizz-buzz-fp/fizz-buzz) (range 1 (inc 30))))
 
 ;; pattern 2
 (->> (range 1 (inc 30))
-     (map (comp println fizz-buzz-fp/fizzBuzz))
+     (map (comp println fizz-buzz-fp/fizz-buzz))
      doall)
