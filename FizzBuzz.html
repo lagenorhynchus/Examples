@@ -1291,14 +1291,14 @@ MathJax.Hub.Config({
 <span class="p">(</span><span class="kd">ns </span><span class="nv">fizz-buzz-fp</span><span class="p">)</span>
 
 <span class="p">(</span><span class="kd">defn </span><span class="nv">fizz-buzz</span> <span class="p">[</span><span class="nv">n</span><span class="p">]</span>
-  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">divisible-by-3</span> <span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span> <span class="nv">n</span> <span class="mi">3</span><span class="p">))</span>
-        <span class="nv">divisible-by-5</span> <span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span> <span class="nv">n</span> <span class="mi">5</span><span class="p">))]</span>
+  <span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">divisible-by-3?</span> <span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span> <span class="nv">n</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="nv">divisible-by-5?</span> <span class="p">(</span><span class="nb">zero? </span><span class="p">(</span><span class="nf">mod</span> <span class="nv">n</span> <span class="mi">5</span><span class="p">))]</span>
     <span class="p">(</span><span class="nf">cond</span>
       <span class="p">(</span><span class="nb">&lt; </span><span class="nv">n</span> <span class="mi">1</span><span class="p">)</span>              <span class="p">(</span><span class="nf">throw</span> <span class="p">(</span><span class="nf">IllegalArgumentException.</span> <span class="s">&quot;n cannot be less than 1&quot;</span><span class="p">))</span>
-      <span class="p">(</span><span class="nb">and </span><span class="nv">divisible-by-3</span>
-           <span class="nv">divisible-by-5</span><span class="p">)</span> <span class="s">&quot;Fizz Buzz&quot;</span>
-      <span class="nv">divisible-by-3</span>       <span class="s">&quot;Fizz&quot;</span>
-      <span class="nv">divisible-by-5</span>       <span class="s">&quot;Buzz&quot;</span>
+      <span class="p">(</span><span class="nb">and </span><span class="nv">divisible-by-3?</span>
+           <span class="nv">divisible-by-5?</span><span class="p">)</span> <span class="s">&quot;Fizz Buzz&quot;</span>
+      <span class="nv">divisible-by-3?</span>       <span class="s">&quot;Fizz&quot;</span>
+      <span class="nv">divisible-by-5?</span>       <span class="s">&quot;Buzz&quot;</span>
       <span class="ss">:else</span>                <span class="p">(</span><span class="nb">str </span><span class="nv">n</span><span class="p">))))</span>
 
 <span class="c1">;; pattern 1</span>
