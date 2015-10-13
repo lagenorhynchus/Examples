@@ -3,7 +3,7 @@
 class User
   constructor: (@id, @name) ->
 
-  toString: () ->
+  toString: ->
     "User(#{@id}, \"#{@name}\")"
 
 users = [
