@@ -9,7 +9,7 @@ def tower_of_hanoi(n_disks):
         hanoi(n - 1, src, dst, tmp)
         # move n-th disk from src to dst
         print('{0} -> {1}'.format(src, dst))
-        # move (n-1) disk from tmp to dst
+        # move (n-1) disks from tmp to dst
         hanoi(n - 1, tmp, src, dst)
     hanoi(n_disks, 'p1', 'p2', 'p3')
 
