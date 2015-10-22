@@ -16,4 +16,5 @@ def tower_of_hanoi(n_disks):
 
 if __name__ == '__main__':
     n = int(sys.argv[1]) if len(sys.argv) == 2 else 3
+    print('tower_of_hanoi({0}):'.format(n))
     tower_of_hanoi(n)
