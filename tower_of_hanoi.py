@@ -13,6 +13,7 @@ def tower_of_hanoi(n_disks):
         hanoi(n - 1, tmp, src, dst)
     hanoi(n_disks, 'p1', 'p2', 'p3')
 
+
 if __name__ == '__main__':
     n = int(sys.argv[1]) if len(sys.argv) == 2 else 3
     tower_of_hanoi(n)
