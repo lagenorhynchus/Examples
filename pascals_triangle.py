@@ -7,8 +7,8 @@ from scipy.misc import comb
 
 def pascals_triangle(m):
     for n in xrange(m):
-        print ('  ' * (m - n - 1) + ''.join('{0:>4}'.format(comb(n, k, 1))
-                                            for k in xrange(n + 1)))
+        print ('  ' * (m - n - 1) + ' '.join('{0:>3}'.format(comb(n, k, 1))
+                                             for k in xrange(n + 1)))
 
 
 if __name__ == '__main__':
