@@ -7,10 +7,10 @@ from scipy.misc import comb
 
 def pascals_triangle(m):
     width = len(' '.join('{0:>5}'.format(comb(m - 1, k, 1))
-                                         for k in xrange(m)))
+                         for k in xrange(m)))
     for n in xrange(m):
         print (' '.join('{0:>5}'.format(comb(n, k, 1))
-                                        for k in xrange(n + 1))).center(width)
+                        for k in xrange(n + 1))).center(width)
 
 
 if __name__ == '__main__':
