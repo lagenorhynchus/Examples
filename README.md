@@ -1,3 +1,3 @@
 # Examples
 
-各種サンプルコード。
+Miscellaneous code examples.
